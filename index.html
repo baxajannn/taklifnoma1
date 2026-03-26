@@ -498,6 +498,11 @@
       white-space: nowrap;
     }
     .toast.show { transform: translateX(-50%) translateY(0); }
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); box-shadow: 0 3px 10px rgba(192,119,106,0.45); }
+      30%       { transform: scale(1.08); box-shadow: 0 5px 18px rgba(192,119,106,0.65); }
+      60%       { transform: scale(1.04); }
+    }
   </style>
 </head>
 <body>
@@ -599,35 +604,109 @@
     <div class="divider-line"></div>
   </section>
 
-  <!-- DATE & TIME INFO -->
+  <!-- DATE & CALENDAR SECTION -->
   <section class="info-section">
     <span class="ornament">❦</span>
-    <h2 class="section-title">Marosim Ma'lumotlari</h2>
-    <div class="info-grid">
-      <div class="info-card">
-        <span class="info-icon">📅</span>
-        <span class="info-label">Sana</span>
-        <span class="info-value">31 Mart<br>2025</span>
+    <h2 class="section-title">Marosim Sanasi</h2>
+
+    <!-- CALENDAR WIDGET -->
+    <div style="max-width:340px; margin:24px auto 0; background:#fff; border-radius:20px;
+                box-shadow:0 4px 24px rgba(192,119,106,0.13); overflow:hidden;
+                border:1px solid rgba(192,119,106,0.18);">
+
+      <!-- Header -->
+      <div style="background:linear-gradient(135deg,#c0776a,#d4957e);padding:18px 20px 14px;text-align:center;">
+        <div style="font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:3px;
+                    color:rgba(255,255,255,0.8);text-transform:uppercase;margin-bottom:4px;">2026</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;
+                    color:#fff;letter-spacing:4px;">MART</div>
       </div>
-      <div class="info-card">
-        <span class="info-icon">🕖</span>
-        <span class="info-label">Soat</span>
-        <span class="info-value">19:00</span>
+
+      <!-- Day labels -->
+      <div style="display:grid;grid-template-columns:repeat(7,1fr);
+                  padding:12px 8px 4px;gap:2px;background:#fff8f6;">
+        <div style="text-align:center;font-size:9px;letter-spacing:1px;color:#b06a5a;font-weight:600;padding:4px 0;">Du</div>
+        <div style="text-align:center;font-size:9px;letter-spacing:1px;color:#b06a5a;font-weight:600;padding:4px 0;">Se</div>
+        <div style="text-align:center;font-size:9px;letter-spacing:1px;color:#b06a5a;font-weight:600;padding:4px 0;">Ch</div>
+        <div style="text-align:center;font-size:9px;letter-spacing:1px;color:#b06a5a;font-weight:600;padding:4px 0;">Pa</div>
+        <div style="text-align:center;font-size:9px;letter-spacing:1px;color:#b06a5a;font-weight:600;padding:4px 0;">Ju</div>
+        <div style="text-align:center;font-size:9px;letter-spacing:1px;color:#b06a5a;font-weight:600;padding:4px 0;">Sh</div>
+        <div style="text-align:center;font-size:9px;letter-spacing:1px;color:#b06a5a;font-weight:600;padding:4px 0;">Ya</div>
       </div>
-      <div class="info-card">
-        <span class="info-icon">💍</span>
-        <span class="info-label">Marosim</span>
-        <span class="info-value">Nikoh Kecha</span>
+
+      <!-- Days — March 2026 starts on Sunday -->
+      <div style="display:grid;grid-template-columns:repeat(7,1fr);
+                  padding:4px 8px 16px;gap:3px;background:#fff;">
+        <!-- empty Mon–Sat before Sun Mar 1 -->
+        <div></div><div></div><div></div><div></div><div></div><div></div>
+        <!-- 1 Sun -->
+        <div style="text-align:center;padding:6px 2px;font-size:13px;color:#5a3a3a;border-radius:8px;">1</div>
+        <!-- Week 2 -->
+        <div style="text-align:center;padding:6px 2px;font-size:13px;color:#5a3a3a;border-radius:8px;">2</div>
+        <div style="text-align:center;padding:6px 2px;font-size:13px;color:#5a3a3a;border-radius:8px;">3</div>
+        <div style="text-align:center;padding:6px 2px;font-size:13px;color:#5a3a3a;border-radius:8px;">4</div>
+        <div style="text-align:center;padding:6px 2px;font-size:13px;color:#5a3a3a;border-radius:8px;">5</div>
+        <div style="text-align:center;padding:6px 2px;font-size:13px;color:#5a3a3a;border-radius:8px;">6</div>
+        <div style="text-align:center;padding:6px 2px;font-size:13px;color:#5a3a3a;border-radius:8px;">7</div>
+        <div style="text-align:center;padding:6px 2px;font-size:13px;color:#5a3a3a;border-radius:8px;">8</div>
+        <!-- Week 3 -->
+        <div style="text-align:center;padding:6px 2px;font-size:13px;color:#5a3a3a;border-radius:8px;">9</div>
+        <div style="text-align:center;padding:6px 2px;font-size:13px;color:#5a3a3a;border-radius:8px;">10</div>
+        <div style="text-align:center;padding:6px 2px;font-size:13px;color:#5a3a3a;border-radius:8px;">11</div>
+        <div style="text-align:center;padding:6px 2px;font-size:13px;color:#5a3a3a;border-radius:8px;">12</div>
+        <div style="text-align:center;padding:6px 2px;font-size:13px;color:#5a3a3a;border-radius:8px;">13</div>
+        <div style="text-align:center;padding:6px 2px;font-size:13px;color:#5a3a3a;border-radius:8px;">14</div>
+        <div style="text-align:center;padding:6px 2px;font-size:13px;color:#5a3a3a;border-radius:8px;">15</div>
+        <!-- Week 4 -->
+        <div style="text-align:center;padding:6px 2px;font-size:13px;color:#5a3a3a;border-radius:8px;">16</div>
+        <div style="text-align:center;padding:6px 2px;font-size:13px;color:#5a3a3a;border-radius:8px;">17</div>
+        <div style="text-align:center;padding:6px 2px;font-size:13px;color:#5a3a3a;border-radius:8px;">18</div>
+        <div style="text-align:center;padding:6px 2px;font-size:13px;color:#5a3a3a;border-radius:8px;">19</div>
+        <div style="text-align:center;padding:6px 2px;font-size:13px;color:#5a3a3a;border-radius:8px;">20</div>
+        <div style="text-align:center;padding:6px 2px;font-size:13px;color:#5a3a3a;border-radius:8px;">21</div>
+        <div style="text-align:center;padding:6px 2px;font-size:13px;color:#5a3a3a;border-radius:8px;">22</div>
+        <!-- Week 5 -->
+        <div style="text-align:center;padding:6px 2px;font-size:13px;color:#5a3a3a;border-radius:8px;">23</div>
+        <div style="text-align:center;padding:6px 2px;font-size:13px;color:#5a3a3a;border-radius:8px;">24</div>
+        <div style="text-align:center;padding:6px 2px;font-size:13px;color:#5a3a3a;border-radius:8px;">25</div>
+        <div style="text-align:center;padding:6px 2px;font-size:13px;color:#5a3a3a;border-radius:8px;">26</div>
+        <div style="text-align:center;padding:6px 2px;font-size:13px;color:#5a3a3a;border-radius:8px;">27</div>
+        <div style="text-align:center;padding:6px 2px;font-size:13px;color:#5a3a3a;border-radius:8px;">28</div>
+        <div style="text-align:center;padding:6px 2px;font-size:13px;color:#5a3a3a;border-radius:8px;">29</div>
+        <!-- Week 6 -->
+        <div style="text-align:center;padding:6px 2px;font-size:13px;color:#5a3a3a;border-radius:8px;">30</div>
+        <!-- ♥ WEDDING DAY 31 ♥ -->
+        <div style="text-align:center;padding:3px 2px;border-radius:10px;
+                    background:linear-gradient(135deg,#c0776a,#e0a090);
+                    box-shadow:0 3px 10px rgba(192,119,106,0.45);
+                    animation:heartbeat 1.4s infinite;">
+          <div style="font-size:12px;font-weight:600;color:#fff;line-height:1.2;">31</div>
+          <div style="font-size:14px;color:#fff;line-height:1;">♥</div>
+        </div>
+        <!-- remaining empty -->
+        <div></div><div></div><div></div><div></div><div></div>
       </div>
-      <div class="info-card">
-        <span class="info-icon">✨</span>
-        <span class="info-label">Kuyov & Kelin</span>
-        <span class="info-value">Hurmat &<br>Charos</span>
+    </div>
+
+    <!-- Nikoh kecha label -->
+    <p style="margin-top:14px;font-family:'Cormorant Garamond',serif;font-size:15px;
+              font-style:italic;color:#b06a5a;letter-spacing:1px;">
+      31 Mart 2026 · Nikoh Kecha · 19:00
+    </p>
+
+    <!-- Details row -->
+    <div style="display:flex;justify-content:center;gap:10px;margin-top:18px;flex-wrap:wrap;padding:0 14px;">
+      <div style="background:#fff;border:1px solid rgba(192,119,106,0.2);border-radius:14px;
+                  padding:12px 18px;text-align:center;min-width:120px;
+                  box-shadow:0 2px 8px rgba(192,119,106,0.08);">
+        <div style="font-size:9px;letter-spacing:2px;color:#b06a5a;text-transform:uppercase;margin-bottom:5px;">Kuyov & Kelin</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:#3a1a1a;">Hurmat & Charos</div>
       </div>
-      <div class="info-card full">
-        <span class="info-icon">📍</span>
-        <span class="info-label">Manzil</span>
-        <span class="info-value">Qo'shkopir tuman<br>Yagona Toyxona</span>
+      <div style="background:#fff;border:1px solid rgba(192,119,106,0.2);border-radius:14px;
+                  padding:12px 18px;text-align:center;min-width:110px;
+                  box-shadow:0 2px 8px rgba(192,119,106,0.08);">
+        <div style="font-size:9px;letter-spacing:2px;color:#b06a5a;text-transform:uppercase;margin-bottom:5px;">Manzil</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:15px;color:#3a1a1a;line-height:1.35;">Qo'shkopir tuman<br>Yagona Toyxona</div>
       </div>
     </div>
   </section>
